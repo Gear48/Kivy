@@ -1,0 +1,116 @@
+<Interface>:
+	AnchorLayout:
+		anchor_x:'center'
+		anchor_y:'top'
+		EspaceJeu:
+			id:id_EspaceJeu
+            the_cache1: id_Cache1
+			size_hint:1,None
+			height:root.width-id_EspaceOutils.height
+	AnchorLayout:
+		anchor_x:'center'
+		anchor_y:'bottom'
+		EspaceOutils:
+			id:id_EspaceOutils
+            size_hint_x: 0.5			
+			BoxLayout:
+				padding:10
+				spacing:10
+				orientation:'horizontal'
+				#size_hint_x: 'center'
+				Cache1:
+					id:id_Cache1
+					size_hint:None,None
+					width:100
+					height:100
+				Cache2:
+					id:id_Cache2
+					size_hint:None,None
+					width:100
+					height:100
+				Cache3:
+					id:id_Cache3
+					size_hint:None,None
+					width:100
+					height:100
+				Cache4:
+					id:id_Cache4
+					size_hint:None,None
+					width:100
+					height:100
+
+<EspaceJeu>:
+	RelativeLayout:
+		Button:
+			text:'Tourner de 90 degrés'
+			#Cache1:
+				#id:id_Cache1
+			on_press:root.the_cache1.ma_propriete_boucle=root.the_cache1.ma_propriete_boucle-90	
+
+<Cache1>:
+    ma_propriete_boucle: 0
+    RelativeLayout:
+	    canvas:
+		    Color:
+			    rgb:1,0,0
+            Rotate:
+                axis: 0,0,1
+                angle: root.ma_propriete_boucle
+                origin: self.center
+		    Rectangle:
+			    pos:self.width/3,0
+			    size:2*self.width/3,self.width/3
+		    Rectangle:
+			    pos:0,self.width/3
+			    size:2*self.width/3,2*self.width/3
+
+        
+		
+<Cache2>:
+	RelativeLayout:
+		canvas:
+			Color:
+				rgb:0,1,0
+			Rectangle:
+				pos:0,0
+				size:self.width/3,self.width
+			Rectangle:
+				pos:self.width/3,0
+				size:self.width/3,self.width/3
+			Rectangle:
+				pos:2*self.width/3,0
+				size:self.width/3,self.width
+			
+			
+<Cache3>:
+	RelativeLayout:
+		canvas:
+			Color:
+				rgb:0,0,1
+			Rectangle:
+				pos:0,0
+				size:self.width/3,self.width
+			Rectangle:
+				pos:self.width/3,self.width/3
+				size:self.width/3,self.width/3
+			Rectangle:
+				pos:2*self.width/3,0
+				size:self.width/3,self.width
+			
+<Cache4>:
+	RelativeLayout:
+		canvas:
+			Color:
+				rgb:1,1,0
+			Rectangle:
+				pos:0,0
+				size:self.width/3,self.width/3
+			Rectangle:
+				pos:2*self.width/3,0
+				size:self.width/3,self.width/3
+			Rectangle:
+				pos:0,self.width/3
+				size:self.width,self.width/3
+			Rectangle:
+				pos:0,2*self.width/3
+				size:2*self.width/3,self.width/3	
